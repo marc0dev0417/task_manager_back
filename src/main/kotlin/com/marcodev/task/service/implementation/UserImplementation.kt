@@ -37,7 +37,7 @@ class UserImplementation(
 
     }
 
-    override fun Login(username: String, password: String): ResponseEntity<*> {
+    override fun login(username: String, password: String): ResponseEntity<*> {
         val responseMap: MutableMap<String, Any> = mutableMapOf()
         val user = userRepository.findByUsername(username)
         val dataFormatMedium = DateFormat.getDateInstance(DateFormat.MEDIUM)

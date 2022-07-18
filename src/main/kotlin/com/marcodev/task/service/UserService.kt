@@ -8,5 +8,5 @@ import org.springframework.stereotype.Service
 interface UserService {
     fun getUsers(): List<UserDTO>?
     fun signUp(userDto: UserDTO): UserDTO?
-    fun Login(username: String, password: String): ResponseEntity<*>
+    fun login(username: String, password: String): ResponseEntity<*>
 }
