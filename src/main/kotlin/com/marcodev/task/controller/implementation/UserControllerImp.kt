@@ -19,6 +19,6 @@ class UserControllerImp(
     }
 
     override fun login(username: String, password: String): ResponseEntity<*>? {
-        return userService.Login(username, password)
+        return userService.login(username, password)
     }
 }

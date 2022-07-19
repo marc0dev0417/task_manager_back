@@ -48,9 +48,7 @@ class UserImplementation(
                     UsernamePasswordAuthenticationToken(username,
                     password)
                 )
-
             if (auth.isAuthenticated) {
-
                 val userDetails: UserDetails = userDetailsService.loadUserByUsername(username)
                 val token: String = jwtTokenUtil.generateToken(userDetails) ?: ""
                 responseMap["error"] = false
@@ -60,13 +58,10 @@ class UserImplementation(
                 responseMap["expired_date"] = dataFormatMedium.format(jwtTokenUtil.getExpirationDateFromToken(token)).toString()
                 responseMap["user"] = user
                 return ResponseEntity.ok(responseMap)
-
             } else {
-
                 responseMap["error"] = true
                 responseMap["message"] = "Invalid Credentials"
                 return ResponseEntity.status(401).body(responseMap)
-
             }
 
         } catch (e: DisabledException) {
@@ -75,7 +70,7 @@ class UserImplementation(
             responseMap["message"] = "User is disabled"
             return ResponseEntity.status(500).body(responseMap);
         } catch (e: BadCredentialsException) {
-
+            e.printStackTrace()
             responseMap["error"] = true
             responseMap["message"] = "Invalid Credentials"
             return ResponseEntity.status(401).body(responseMap);
@@ -85,7 +80,6 @@ class UserImplementation(
             responseMap["error"] = true
             responseMap["message"] = "Something went wrong";
             return ResponseEntity.status(500).body(responseMap);
-
         }
     }
 }
