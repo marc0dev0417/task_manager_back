@@ -1,6 +1,7 @@
 package com.marcodev.task.service.implementation
 
 import com.marcodev.task.model.dto.UserDTO
+import com.marcodev.task.model.dto.UserProfileDTO
 import com.marcodev.task.repository.UserRepository
 import com.marcodev.task.security.JwtTokenUtil
 import com.marcodev.task.service.UserService
@@ -24,8 +25,8 @@ class UserImplementation(
    private val userDetailsService: JwtUserDetailsService,
    private val jwtTokenUtil: JwtTokenUtil
 ): UserService {
-    override fun getUsers(): List<UserDTO>? {
-        return userRepository.findAll().map { DataConverter.userToDTO(it) }
+    override fun getUsers(): List<UserProfileDTO>? {
+        return userRepository.findAll().map { DataConverter.userProfileToDTO(it) }
     }
 
     override fun signUp(userDto: UserDTO): UserDTO? {

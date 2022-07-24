@@ -2,6 +2,7 @@ package com.marcodev.task.util
 
 import com.marcodev.task.model.User
 import com.marcodev.task.model.dto.UserDTO
+import com.marcodev.task.model.dto.UserProfileDTO
 
 class DataConverter {
 
@@ -18,6 +19,12 @@ class DataConverter {
                 id = userDTO.id!!,
                 username = userDTO.username,
                 password = userDTO.password
+            )
+        }
+        fun userProfileToDTO(user: User): UserProfileDTO{
+            return UserProfileDTO(
+                id = user.id,
+                username = user.username
             )
         }
     }

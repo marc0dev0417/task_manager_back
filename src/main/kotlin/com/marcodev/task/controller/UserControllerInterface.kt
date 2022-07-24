@@ -1,6 +1,7 @@
 package com.marcodev.task.controller
 
 import com.marcodev.task.model.dto.UserDTO
+import com.marcodev.task.model.dto.UserProfileDTO
 import org.springframework.http.ResponseEntity
 import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.RequestBody
@@ -15,7 +16,7 @@ interface UserControllerInterface {
         produces = ["application/json"],
         method = [RequestMethod.GET]
     )
-    fun getUsers(): ResponseEntity<List<UserDTO>>
+    fun getUsers(): ResponseEntity<List<UserProfileDTO>>
 
     @RequestMapping(
         value = ["/signUp"],
