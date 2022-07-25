@@ -35,7 +35,6 @@ class UserImplementation(
             userItem.password = BCryptPasswordEncoder().encode(userItem.password)
             val userToSave = userRepository.save(userItem)
             return DataConverter.userToDTO(userToSave)
-
     }
 
     override fun login(username: String, password: String): ResponseEntity<*> {

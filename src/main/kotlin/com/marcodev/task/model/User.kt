@@ -11,8 +11,10 @@ import javax.persistence.Table
 data class User(
     @Id
     var id: UUID = UUID.randomUUID(),
-    @Column(name = "username")
+    @Column(name="email", nullable = false, unique = true)
+    var email: String? = null,
+    @Column(name = "username", nullable = false)
     var username: String? = null,
-    @Column(name= "password")
+    @Column(name= "password", nullable = false)
     var password: String? = null
 )

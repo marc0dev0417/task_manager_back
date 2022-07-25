@@ -10,13 +10,15 @@ class DataConverter {
         fun userToDTO(user: User): UserDTO{
             return UserDTO(
                 id = user.id,
+                email = user.email,
                 username = user.username,
                 password = user.password
             )
         }
         fun userFromDTO(userDTO: UserDTO): User{
             return User(
-                id = userDTO.id!!,
+                id = userDTO.id,
+                email = userDTO.email,
                 username = userDTO.username,
                 password = userDTO.password
             )
@@ -24,6 +26,7 @@ class DataConverter {
         fun userProfileToDTO(user: User): UserProfileDTO{
             return UserProfileDTO(
                 id = user.id,
+                email = user.email,
                 username = user.username
             )
         }
